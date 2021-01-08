@@ -1,0 +1,23 @@
+{% extends 'webapp/base.html' %}
+{% block content %}
+{% if products %}
+<div class="row mx-2">
+    {% for product in products %}
+    <div class="col-12 col-sm-6 col-md-4 px-2 mb-3">
+        <div class="card">
+            <img src="{{product.image}}" class="img-fluid" style="padding: 30px" alt="{{product.title}}">
+            <div class="card-body">
+                <h5 class="card-title">{{product.title}}</h5>
+                <p class="card-text">
+                    A beautiful {{product.title}} for ${{product.price}}.
+                </p>
+                <a href="/" class="btn btn-primary">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No products available.</p>
+{% endif %}
+{% endblock %}
